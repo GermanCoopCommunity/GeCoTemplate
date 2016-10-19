@@ -1,0 +1,104 @@
+class Header {
+    gameType = "Sandbox"; // Game type, see 'class' columns in the table below
+    minPlayers = 1; //min # of players the mission supports
+    maxPlayers = 72; //max # of players the mission supports
+};
+
+joinUnassigned = 1;
+allowFunctionsRecompile = 1;
+allowFunctionsLog = 1;
+briefing = 0;
+debriefing = 0;
+enableDebugConsole = 2;
+
+disabledAI = 1;
+author = "joko // Jonas";
+onLoadName = "GeCo";
+onLoadMission = "GeCo";
+
+// skipLobby = 1;
+
+respawn = 3;
+respawnDelay = 3;
+respawnDialog = 0;
+
+// CLib Mission Config Entrys
+class CfgCLibLocalisation {
+    class STR_CLib_TestMission {
+        English = "Test Mission";
+    };
+};
+
+CLib_useExperimentalAutoload = 0;
+
+CLib_useFallbackRemoteExecution = 0;
+CLib_useCompressedFunction = 0;
+// CLib_Modules[] = {"CLib"};
+CLib_Modules[] = {"CLib/Core","CLib/PerFrame", "CLib/Events", "CLib/Localisation", "CLib/ConfigCaching", "CLib/3dGraphics", "CLib/extensionFramework", "CLib/Gear", "CLib/Interaction", "CLib/lnbData", "CLib/MapGraphics", "CLib/Mutex", "CLib/Namespaces", "CLib/RemoteExecution", "CLib/Statemachine", "CLib/StatusEffects", "CLib/Settings"};
+
+class CfgClibMissionModules {
+    tag = "GeCo";
+    class EMPS {
+        class init {};
+    };
+};
+
+class CfgCLibLoadouts {
+
+    class BaseCollection {
+        uniform[] = {};
+        vest[] = {};
+        headgear[] = {};
+        goggle[] = {};
+        backpack[] = {};
+        primaryWeapon[] = {};
+        primaryWeaponOptic[] = {};
+        primaryWeaponMuzzle[] = {};
+        primaryWeaponBarrel[] = {};
+        primaryWeaponResting[] = {};
+        primaryWeaponLoadedMagazine[] = {};
+        secondaryWeapon[] = {};
+        secondaryWeaponOptic[] = {};
+        secondaryWeaponMuzzle[] = {};
+        secondaryWeaponBarrel[] = {};
+        secondaryWeaponResting[] = {};
+        secondaryWeaponLoadedMagazine[] = {};
+        handgun[] = {};
+        handgunOptic[] = {};
+        handgunMuzzle[] = {};
+        handgunBarrel[] = {};
+        handgunResting[] = {};
+        handgunLoadedMagazine[] = {};
+        binocular[] = {};
+        magazines[] = {};
+        items[] = {};
+        itemsUniform[] = {};
+        itemsVest[] = {};
+        itemsBackpack[] = {};
+        linkedItems[] = {};
+        script[] = {};
+    };
+
+    class Weapon_MX : BaseCollection {
+        primaryWeapon[] = {"arifle_MX_F"};
+        primaryWeaponOptic[] = {"optic_Aco"};
+        primaryWeaponLoadedMagazine[] = {"30Rnd_65x39_caseless_mag"};
+        primaryWeaponBarrel[] = {"acc_pointer_IR"};
+        magazines[] = {{"30Rnd_65x39_caseless_mag_Tracer",3},{"30Rnd_65x39_caseless_mag",6}};
+    };
+
+    class Rifleman : BaseCollection {
+        uniform[] = {"U_B_CombatUniform_mcam"};
+        vest[] = {"V_PlateCarrierL_CTRG"};
+        headgear[] = {"H_HelmetB_camo"};
+        goggle[] = {"G_Combat"};
+        backpack[] = {"B_AssaultPack_mcamo"};
+        handgun[] = {"hgun_P07_F"};
+        magazines[] = {{"16Rnd_9x21_Mag",2}};
+        itemsBackpack[] = {{"FirstAidKit",3}};
+        linkedItems[] = {"ItemWatch","ItemCompass","ItemMap","NVGoggles"};
+        class PrimaryWeaponClass : Weapon_MX { // Some Collections added to Rifleman Collection
+          primaryWeaponOptic[] = {}; // Change optic to iron sight for this collection
+        };
+    };
+};
