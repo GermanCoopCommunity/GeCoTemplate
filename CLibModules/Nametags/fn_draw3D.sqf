@@ -1,5 +1,4 @@
 #include "macros.hpp"
-#include "macros.hpp"
 /*
     GeCo Mission Template
 
