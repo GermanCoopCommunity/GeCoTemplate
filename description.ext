@@ -38,8 +38,18 @@ CLib_Modules[] = {"CLib/Core","CLib/PerFrame", "CLib/Events", "CLib/Localisation
 
 class CfgClibMissionModules {
     tag = "GeCo";
+    class Common {
+        class init {};
+    };
     class EMPS {
         class init {};
+    };
+    class EarPlugs {
+        class clientInit {};
+    };
+    class Nametags {
+        class clientInit {};
+        class draw3D {};
     };
 };
 
