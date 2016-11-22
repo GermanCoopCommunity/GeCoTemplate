@@ -23,7 +23,7 @@ GVAR(oldVolume) = soundVolume;
     {!GVAR(soundVolumeReduced)},
     {
         GVAR(oldVolume) = soundVolume;
-        0.5 fadeSound (soundVolume*0.3);
+        0.5 fadeSound (soundVolume*0.7);
     }
 ] call CFUNC(addAction);
 
