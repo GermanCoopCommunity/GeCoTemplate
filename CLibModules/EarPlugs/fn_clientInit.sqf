@@ -23,6 +23,7 @@ GVAR(oldVolume) = soundVolume;
     {!GVAR(soundVolumeReduced)},
     {
         GVAR(oldVolume) = soundVolume;
+        GVAR(soundVolumeReduced) = true;
         0.5 fadeSound (soundVolume*0.7);
     }
 ] call CFUNC(addAction);
@@ -33,10 +34,12 @@ GVAR(oldVolume) = soundVolume;
     0,
     {GVAR(soundVolumeReduced)},
     {
+        GVAR(soundVolumeReduced) = false;
         0.5 fadeSound GVAR(oldVolume);
     }
 ] call CFUNC(addAction);
 
 ["playerChanged", {
+    GVAR(soundVolumeReduced) = false;
     0.5 fadeSound GVAR(oldVolume);
 }] call CFUNC(addEventhandler);
